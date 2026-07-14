@@ -9,9 +9,13 @@ When implementing from a selected generated mock, treat that image as the source
 ## Durable project decisions
 
 - The GitHub repository may remain public for the preview.
-- Do not publish the unredacted PDF, private address, birth date, certificates, FTP credentials, or other secrets.
+- The user explicitly approved publishing the home address in the contact area and the combined CV/portfolio PDF. Never commit or publish FTP credentials, birth date, certificates, or other secrets.
 - The visual source of truth is `Lebenslauf_Portfolio_AndreasSchwarz.pdf`; translate its editorial system responsively instead of copying the A4 layout.
 - Warm white, black, hard rules, Manrope-like geometric typography, restrained amber accents (`#B86F23`), and real colour project imagery define the visual direction.
 - Approved composition: interaction/layout from design option 2, navigation/accent from option 3, real portrait with diagonal crop from option 1.
 - All ordinary content edits should happen in `src/content.js`; image files live in `public/images/`.
+- Videos are maintained centrally in the `videos` array in `src/content.js`; use local thumbnails and privacy-enhanced, click-to-load YouTube embeds.
+- Positioning is `Visual Designer | Creative Engineer`, supported by the exact bridge statement supplied by the user and a plain-language explanation of `Creative Engineer`.
+- The CV/profile section follows the hero, before project work.
+- GitHub and Impressum links are intentionally absent from the public page.
 - Content must remain limited to claims supported by the PDF or the user's supplied brief.

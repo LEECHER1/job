@@ -4,20 +4,21 @@
 
 export const site = {
   name: "Andreas Schwarz",
-  role: "Visual Designer · Creative Engineer",
+  role: "Visual Designer | Creative Engineer",
   email: "schwarz.andreas@liwest.at",
   phoneLabel: "+43 650 24 19 890",
   phoneHref: "+436502419890",
   linkedin: "https://www.linkedin.com/in/andreas-schwarz1989",
-  github: "https://github.com/LEECHER1",
-  portfolioPdf: "Andreas-Schwarz-Portfolio.pdf",
+  documentPdf: "Andreas-Schwarz-Lebenslauf-Portfolio.pdf",
+  address: ["Bruno-Gallée-Weg 8/19", "4060 Leonding", "Österreich"],
 };
 
 export const navigation = [
   ["Start", "start"],
-  ["Arbeiten", "arbeiten"],
-  ["Mehrwert", "mehrwert"],
   ["Profil", "profil"],
+  ["Arbeiten", "arbeiten"],
+  ["Video", "video"],
+  ["Mehrwert", "mehrwert"],
   ["Kontakt", "kontakt"],
 ];
 
@@ -74,7 +75,6 @@ export const projects = [
     alt: "Mehrsprachige Ausschnitte einer übersetzten Bedienungsanleitung",
     tags: ["visual-design", "pim-workflows"],
     fit: "contain",
-    href: "https://github.com/LEECHER1/SuperTranslatorPro",
   },
   {
     title: "Helden des Sommers",
@@ -111,6 +111,19 @@ export const projects = [
     image: "employer-branding.jpg",
     alt: "Drei Menschen im Gespräch am Rand eines Swimmingpools",
     tags: ["visual-design", "fotografie"],
+  },
+];
+
+// Neue Videos können hier ergänzt werden. Benötigt werden YouTube-ID,
+// Vorschaubild unter public/images/ sowie Titel und kurzer Beschreibungstext.
+export const videos = [
+  {
+    title: "Gelsendiele",
+    eyebrow: "Video",
+    text: "Bewegtbild ergänzt das Portfolio um Atmosphäre, Rhythmus und Raum.",
+    youtubeId: "24dl-1U2Dco",
+    image: "gelsendiele-video.jpg",
+    alt: "Gelsendiele mit Garten und Sitzbereich in der Abendsonne",
   },
 ];
 

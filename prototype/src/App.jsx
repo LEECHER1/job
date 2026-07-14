@@ -7,6 +7,7 @@ import {
   projects,
   site,
   valuePoints,
+  videos,
 } from "./content";
 
 function Header({ activeSection }) {
@@ -54,8 +55,9 @@ function Header({ activeSection }) {
 
 function ProjectCard({ project }) {
   const base = import.meta.env.BASE_URL;
-  const body = (
-    <>
+
+  return (
+    <article className="project-card">
       <div className={`project-image${project.fit === "contain" ? " is-contained" : ""}`}>
         <img src={`${base}images/${project.image}`} alt={project.alt} loading="lazy" />
       </div>
@@ -64,21 +66,45 @@ function ProjectCard({ project }) {
         <h3>{project.title}</h3>
         <p>{project.text}</p>
         <span>{project.disciplines}</span>
-        {project.href && <strong>Projekt auf GitHub ansehen ↗</strong>}
       </div>
-    </>
+    </article>
   );
+}
 
-  return project.href ? (
-    <a className="project-card" href={project.href} target="_blank" rel="noreferrer">{body}</a>
-  ) : (
-    <article className="project-card">{body}</article>
+function VideoCard({ video }) {
+  const base = import.meta.env.BASE_URL;
+  const [playing, setPlaying] = useState(false);
+
+  return (
+    <article className="video-feature">
+      <div className="video-media">
+        {playing ? (
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}?autoplay=1&rel=0`}
+            title={`${video.title} – Video`}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
+        ) : (
+          <button type="button" className="video-poster" onClick={() => setPlaying(true)} aria-label={`${video.title} abspielen`}>
+            <img src={`${base}images/${video.image}`} alt={video.alt} loading="lazy" />
+            <span>Video ansehen</span>
+          </button>
+        )}
+      </div>
+      <div className="video-copy">
+        <p className="eyebrow">{video.eyebrow}</p>
+        <h3>{video.title}</h3>
+        <p>{video.text}</p>
+        <span>YouTube · Externer Inhalt</span>
+      </div>
+    </article>
   );
 }
 
 function SectionHeading({ kicker, title, text, id }) {
   return (
-    <div className="section-heading">
+    <div className="section-heading" data-reveal>
       <p className="eyebrow">{kicker}</p>
       <h2 id={id}>{title}</h2>
       {text && <p>{text}</p>}
@@ -97,9 +123,7 @@ export function App() {
   );
 
   useEffect(() => {
-    const sections = navigation
-      .map(([, id]) => document.getElementById(id))
-      .filter(Boolean);
+    const sections = navigation.map(([, id]) => document.getElementById(id)).filter(Boolean);
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
@@ -113,6 +137,21 @@ export function App() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const elements = document.querySelectorAll("[data-reveal]");
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      }),
+      { rootMargin: "0px 0px -8%", threshold: 0.12 },
+    );
+    elements.forEach((element) => observer.observe(element));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       <a className="skip-link" href="#main-content">Zum Inhalt springen</a>
@@ -122,11 +161,12 @@ export function App() {
           <div className="hero-copy">
             <p className="eyebrow">Portfolio · 2026</p>
             <h1 id="hero-title"><span>Andreas</span><strong>Schwarz</strong></h1>
-            <p className="hero-role">Visual Designer <i>/</i> Creative Engineer</p>
+            <p className="hero-role">Visual Designer <i>|</i> Creative Engineer</p>
             <p className="hero-lead">Ich verbinde Design, Technik und Umsetzung – damit aus komplexen Produkten klare Kommunikation und aus Ideen greifbare Lösungen werden.</p>
+            <p className="hero-disciplines">Grafikdesign · Fotografie · 3D-Visualisierung · Produktdesign & Prototyping · Workflow-Automatisierung</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#arbeiten">Projekte entdecken</a>
-              <a className="button button-secondary" href={`${base}${site.portfolioPdf}`} target="_blank" rel="noreferrer">PDF-Portfolio ansehen</a>
+              <a className="button button-secondary" href={`${base}${site.documentPdf}`} target="_blank" rel="noreferrer">Lebenslauf & Portfolio als PDF</a>
             </div>
           </div>
           <figure className="hero-image">
@@ -138,6 +178,30 @@ export function App() {
           </div>
         </section>
 
+        <section className="profile-section" id="profil" aria-labelledby="profile-title">
+          <SectionHeading
+            kicker="Profil & Lebenslauf"
+            title="Eine Laufbahn, die Disziplinen verbindet."
+            text="Fotografie war der Ausgangspunkt. Danach kamen Grafikdesign, Produktkommunikation und 3D – später Automatisierung, Elektronik und Prototyping."
+            id="profile-title"
+          />
+          <div className="profile-layout" data-reveal>
+            <aside>
+              <p className="eyebrow">Creative Engineer</p>
+              <p>Ich gestalte nicht nur die Oberfläche. Ich entwickle visuelle Systeme, automatisiere Abläufe und mache Produktideen als Bild, 3D-Modell oder funktionalen Prototyp greifbar.</p>
+              <a href={`${base}${site.documentPdf}`} target="_blank" rel="noreferrer">Lebenslauf & Portfolio ansehen ↗</a>
+            </aside>
+            <ol className="career-list">
+              {career.map((entry) => (
+                <li key={`${entry.company}-${entry.years}`}>
+                  <time>{entry.years}</time>
+                  <div><h3>{entry.company}</h3><p>{entry.role}</p></div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
         <section className="work-section" id="arbeiten" aria-labelledby="work-title">
           <SectionHeading
             kicker="Ausgewählte Arbeiten"
@@ -145,7 +209,7 @@ export function App() {
             text="Wählen Sie einen Schwerpunkt und sehen Sie direkt die passenden Arbeiten – von visueller Gestaltung bis zu eigenen Werkzeugen."
             id="work-title"
           />
-          <div className="discipline-layout">
+          <div className="discipline-layout" data-reveal>
             <div className="discipline-tabs" role="tablist" aria-label="Arbeiten nach Schwerpunkt filtern">
               {disciplines.map((discipline, index) => (
                 <button
@@ -168,10 +232,22 @@ export function App() {
               <span>{filteredProjects.length} {filteredProjects.length === 1 ? "ausgewählte Arbeit" : "ausgewählte Arbeiten"}</span>
             </div>
           </div>
-          <div className="project-grid" id="project-panel" role="tabpanel">
+          <div className="project-grid project-grid-animated" key={selectedDiscipline} id="project-panel" role="tabpanel">
             {filteredProjects.map((project) => <ProjectCard key={project.title} project={project} />)}
           </div>
-          <p className="portfolio-note">Die Website zeigt eine fokussierte Auswahl. Das vollständige visuelle Portfolio finden Sie als <a href={`${base}${site.portfolioPdf}`} target="_blank" rel="noreferrer">PDF-Portfolio ↗</a>.</p>
+          <p className="portfolio-note">Die Website zeigt eine fokussierte Auswahl. Lebenslauf und vollständiges visuelles Portfolio finden Sie im <a href={`${base}${site.documentPdf}`} target="_blank" rel="noreferrer">gemeinsamen PDF ↗</a>.</p>
+        </section>
+
+        <section className="video-section" id="video" aria-labelledby="video-title">
+          <SectionHeading
+            kicker="Bewegtbild"
+            title="Arbeiten, die sich bewegen."
+            text="Video ergänzt die statischen Projekte um Atmosphäre und zeitlichen Ablauf. Weitere Arbeiten lassen sich später über dieselbe Struktur ergänzen."
+            id="video-title"
+          />
+          <div className="video-list" data-reveal>
+            {videos.map((video) => <VideoCard key={video.youtubeId} video={video} />)}
+          </div>
         </section>
 
         <section className="value-section" id="mehrwert" aria-labelledby="value-title">
@@ -181,7 +257,7 @@ export function App() {
             text="Besonders wertvoll wird mein Profil dort, wo Gestaltung, Produktverständnis und technische Umsetzung nicht getrennt voneinander funktionieren."
             id="value-title"
           />
-          <div className="value-grid">
+          <div className="value-grid" data-reveal>
             {valuePoints.map((point) => (
               <article key={point.number}>
                 <span>{point.number}</span>
@@ -190,36 +266,12 @@ export function App() {
               </article>
             ))}
           </div>
-          <div className="fit-block">
+          <div className="fit-block" data-reveal>
             <p className="eyebrow">Besonders passend, wenn Sie …</p>
             <ul>
               {companyFit.map((item) => <li key={item}>{item}</li>)}
             </ul>
             <a className="button button-light" href="#kontakt">Passung besprechen</a>
-          </div>
-        </section>
-
-        <section className="profile-section" id="profil" aria-labelledby="profile-title">
-          <SectionHeading
-            kicker="Profil & Werdegang"
-            title="Vom Bild zur funktionierenden Lösung."
-            text="Fotografie war der Ausgangspunkt. Danach kamen Grafikdesign, Produktkommunikation und 3D – später Automatisierung, Elektronik und Prototyping."
-            id="profile-title"
-          />
-          <div className="profile-layout">
-            <aside>
-              <p className="eyebrow">Creative Engineer</p>
-              <p>Gestaltung, technisches Verständnis und praktische Umsetzung verbinden, um aus einer Idee eine funktionierende und verständliche Lösung zu entwickeln.</p>
-              <a href={`${base}${site.portfolioPdf}`} target="_blank" rel="noreferrer">Portfolio als PDF ansehen ↗</a>
-            </aside>
-            <ol className="career-list">
-              {career.map((entry) => (
-                <li key={`${entry.company}-${entry.years}`}>
-                  <time>{entry.years}</time>
-                  <div><h3>{entry.company}</h3><p>{entry.role}</p></div>
-                </li>
-              ))}
-            </ol>
           </div>
         </section>
 
@@ -234,13 +286,13 @@ export function App() {
           <div className="contact-meta">
             <a href={`mailto:${site.email}`}>{site.email}</a>
             <a href={`tel:${site.phoneHref}`}>{site.phoneLabel}</a>
-            <a href={site.github} target="_blank" rel="noreferrer">GitHub ↗</a>
+            <address>{site.address.map((line) => <span key={line}>{line}</span>)}</address>
           </div>
         </section>
       </main>
       <footer className="site-footer">
         <p>© 2026 {site.name} · {site.role}</p>
-        <div><a href="https://theblackpixel.at/impressum-2020/">Impressum</a><a href="#start">Nach oben ↑</a></div>
+        <a href="#start">Nach oben ↑</a>
       </footer>
     </>
   );

@@ -6,7 +6,7 @@ Responsive Bewerbungs- und Portfolio-Website für:
 - Positionierung: Visual Designer | Creative Engineer
 - Sprache der ersten Version: Deutsch
 
-Die Website übersetzt den Schwarz-Weiß-Charakter des PDF-Portfolios in ein responsives digitales Designsystem mit dezentem Amber-Akzent, echten Projektbildern und einem interaktiven Projektfilter.
+Die Website übersetzt den Schwarz-Weiß-Charakter des PDF-Portfolios in ein responsives digitales Designsystem mit dezentem Amber-Akzent, echten Projektbildern, einem interaktiven Projektfilter und einem modularen Videobereich.
 
 ## Lokal starten
 
@@ -22,7 +22,7 @@ Der Produktions-Build wird mit `npm run build` erzeugt und ist für den Unterord
 
 - Texte, Navigation, Projekte, Kategorien, Werdegang und Links: `prototype/src/content.js`
 - Bilder: `prototype/public/images/`
-- Öffentliches Portfolio-PDF: `prototype/public/Andreas-Schwarz-Portfolio.pdf`
+- Öffentliches Lebenslauf- und Portfolio-PDF: `prototype/public/Andreas-Schwarz-Lebenslauf-Portfolio.pdf`
 - Ausführliche Anleitung: `prototype/docs/inhalte-aendern.md`
 
 ## Aktueller Stand
@@ -31,6 +31,6 @@ Der Produktions-Build wird mit `npm run build` erzeugt und ist für den Unterord
 - Phase 2: Konzept und Designsystem – umgesetzt
 - Phase 3: Responsive React/Vite-Website – umgesetzt
 - Phase 4: Inhalte und Originalbilder – umgesetzt
-- Phase 5: Qualität – in Prüfung; Veröffentlichung folgt nach Freigabe
+- Phase 5: Qualität und responsive Prüfung – abgeschlossen
 
-Inhalt und Gestaltung sind aus dem freigegebenen Lebenslauf/Portfolio und den bereitgestellten Originaldaten abgeleitet. Nicht belegte Tätigkeiten, Ergebnisse oder Kennzahlen werden nicht ergänzt. Das öffentliche PDF enthält nur die freigegebenen Portfolioseiten und keine private Anschrift, kein Geburtsdatum und keine Zeugnisse.
+Inhalt und Gestaltung sind aus dem freigegebenen Lebenslauf/Portfolio und den bereitgestellten Originaldaten abgeleitet. Nicht belegte Tätigkeiten, Ergebnisse oder Kennzahlen werden nicht ergänzt. Das gemeinsame öffentliche PDF enthält die Lebenslauf- und Portfolioseiten, jedoch keine Zeugnisse oder Zertifikatsseite.

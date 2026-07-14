@@ -6,13 +6,14 @@ Die Website ist so aufgebaut, dass normale Inhaltsänderungen ohne Eingriff in d
 
 Alle zentralen Inhalte stehen in `src/content.js`:
 
-- `site`: Name, Rolle, E-Mail, Telefon, LinkedIn, GitHub und PDF-Dateiname
+- `site`: Name, Rolle, E-Mail, Telefon, LinkedIn, Adresse und PDF-Dateiname
 - `navigation`: Menüpunkte und Zielbereiche
 - `disciplines`: Filterkategorien mit Kurzbeschreibung
 - `projects`: Projektkarten, Bilder, Beschreibungen und Kategoriezuordnung
 - `valuePoints`: Mehrwertargumente für Unternehmen
 - `companyFit`: typische Aufgaben, bei denen das Profil besonders gut passt
 - `career`: beruflicher Werdegang
+- `videos`: YouTube-Videos mit Vorschaubild, ID und Beschreibung
 
 Texte immer innerhalb der Anführungszeichen ändern. Danach mit `npm run build` prüfen.
 
@@ -25,9 +26,18 @@ Texte immer innerhalb der Anführungszeichen ändern. Danach mit `npm run build`
 
 Mit `fit: "contain"` wird ein Motiv vollständig auf dunklem Grund gezeigt. Ohne `fit` wird das Bild formatfüllend beschnitten.
 
-## Portfolio-PDF austauschen
+## Ein Video ergänzen
 
-Die öffentliche Datei liegt unter `public/Andreas-Schwarz-Portfolio.pdf`. Vor dem Austausch unbedingt prüfen, dass keine private Anschrift, kein Geburtsdatum, keine Zeugnisse oder andere nicht für die Veröffentlichung bestimmte Inhalte enthalten sind.
+1. Ein Vorschaubild im Format 16:9 nach `public/images/` kopieren.
+2. In `src/content.js` innerhalb von `videos` den vorhandenen Eintrag kopieren.
+3. `title`, `text`, `youtubeId`, `image` und `alt` anpassen.
+4. Die `youtubeId` ist der Teil der YouTube-Adresse nach `youtu.be/` beziehungsweise hinter `v=`.
+
+Das Video wird erst nach einem Klick geladen. Dadurch bleibt die Seite schnell und es wird nicht sofort eine Verbindung zu YouTube aufgebaut.
+
+## Lebenslauf- und Portfolio-PDF austauschen
+
+Die öffentliche Datei liegt unter `public/Andreas-Schwarz-Lebenslauf-Portfolio.pdf`. Vor dem Austausch prüfen, dass nur die gewünschten Lebenslauf- und Portfolioseiten enthalten sind und keine Zeugnisse, Zertifikate oder nicht für die Veröffentlichung bestimmte Inhalte mitgeliefert werden.
 
 ## Farben und Layout
 
