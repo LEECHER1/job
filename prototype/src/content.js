@@ -22,6 +22,33 @@ export const navigation = [
   ["Kontakt", "kontakt"],
 ];
 
+export const heroProcess = [
+  {
+    number: "01",
+    label: "Gestaltung",
+    description: "Visuelle Systeme & klare Kommunikation",
+    discipline: "grafikdesign",
+  },
+  {
+    number: "02",
+    label: "Technik",
+    description: "3D, IT & automatisierte Workflows",
+    discipline: "it-automatisierung",
+  },
+  {
+    number: "03",
+    label: "Umsetzung",
+    description: "Produkte verständlich & greifbar machen",
+    discipline: "produktkommunikation",
+  },
+];
+
+export const valueIntro = {
+  kicker: "Mehrwert für Unternehmen",
+  title: "Wo Gestaltung auf Technik trifft, wird aus Kommunikation eine Lösung.",
+  text: "Mein Mehrwert liegt in der Verbindung: Ich denke visuelle Qualität, Produktverständnis, IT und praktische Umsetzung gemeinsam – vom ersten Entwurf bis zum greifbaren Ergebnis.",
+};
+
 export const disciplines = [
   {
     id: "grafikdesign",
@@ -137,7 +164,7 @@ export const videos = [
 export const valuePoints = [
   {
     number: "01",
-    title: "18+ Jahre visuelle Praxis",
+    title: "Breite visuelle Praxis",
     text: "Fotografie, Grafikdesign, 3D und Produktkommunikation bilden eine belastbare Basis – nicht nur Toolwissen.",
   },
   {

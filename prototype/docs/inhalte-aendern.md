@@ -8,6 +8,8 @@ Alle zentralen Inhalte stehen in `src/content.js`:
 
 - `site`: Name, Rolle, E-Mail, Telefon, LinkedIn, Adresse und PDF-Dateiname
 - `navigation`: Menüpunkte und Zielbereiche
+- `heroProcess`: die drei interaktiven Einstiege Gestaltung, Technik und Umsetzung inklusive Zielkategorie
+- `valueIntro`: Überschrift und Einleitung des Bereichs „Mehrwert für Unternehmen“
 - `disciplines`: Filterkategorien mit Kurzbeschreibung
 - `projects`: Projektkarten, Bilder, Beschreibungen und Kategoriezuordnung
 - `valuePoints`: Mehrwertargumente für Unternehmen

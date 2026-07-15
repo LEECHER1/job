@@ -23,6 +23,9 @@ When implementing from a selected generated mock, treat that image as the source
 - Do not show a `Portfolio · 2026` label in the hero contact line. The bridge statement breaks before `damit`; the discipline line breaks before `Produktdesign & Prototyping`.
 - The favicon is only a transparent-background `A` in the amber accent colour; do not add a tile, slash or secondary colour.
 - The hero content cluster sits slightly above optical center on desktop, while mobile uses normal document flow.
+- The portrait caption is `Design + IT` / `visuell gedacht` / `technisch umgesetzt`; do not restore the generic `18+ Jahre` claim.
+- The three hero process items are functional buttons: Gestaltung selects Grafikdesign, Technik selects IT & Automatisierung, and Umsetzung selects Produktkommunikation before scrolling to the work explorer.
+- Microinteractions stay restrained and purposeful: short entrance transitions, subtle image scale, inset accent lines, small card/copy movement, and full `prefers-reduced-motion` support.
 - Every competence category always shows four work cards in a stable 2×2 desktop grid. Empty positions use neutral, clearly labelled placeholders until real projects are added.
 - Project images open an accessible, viewport-bound large-format dialog containing the image and the existing project text. The dialog itself must never create horizontal or vertical scrollbars.
 - The large-format dialog reserves enough width for its copy column that project names wrap only at word boundaries; never split names such as `SuperTranslator` inside the word.

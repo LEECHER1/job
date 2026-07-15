@@ -1,12 +1,14 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { ArrowsOutSimple, EnvelopeSimple, MapPin, X } from "@phosphor-icons/react";
+import { ArrowDownRight, ArrowsOutSimple, EnvelopeSimple, MapPin, X } from "@phosphor-icons/react";
 import {
   career,
   companyFit,
   disciplines,
+  heroProcess,
   navigation,
   projects,
   site,
+  valueIntro,
   valuePoints,
   videos,
 } from "./content";
@@ -204,6 +206,13 @@ export function App() {
   const [activeSection, setActiveSection] = useState("start");
   const [activeProject, setActiveProject] = useState(null);
   const closeProject = useCallback(() => setActiveProject(null), []);
+  const openProcessStep = useCallback((disciplineId) => {
+    setSelectedDiscipline(disciplineId);
+    requestAnimationFrame(() => {
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      document.getElementById("arbeiten")?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+    });
+  }, []);
   const selected = disciplines.find((item) => item.id === selectedDiscipline) ?? disciplines[0];
   const filteredProjects = useMemo(
     () => projects.filter((project) => project.tags.includes(selectedDiscipline)),
@@ -275,10 +284,21 @@ export function App() {
           </div>
           <figure className="hero-image">
             <img src={`${base}images/andreas-schwarz.jpg`} alt="Andreas Schwarz im schwarzen Sakko vor moderner Architektur" />
-            <figcaption><b>18+ Jahre</b><span>visuelle Erfahrung<br />mit technischer Neugier</span></figcaption>
+            <figcaption><b>Design + IT</b><span>visuell gedacht<br />technisch umgesetzt</span></figcaption>
           </figure>
-          <div className="hero-index" aria-label="Kompetenzprofil">
-            <span>01</span><p>Gestaltung</p><span>02</span><p>Technik</p><span>03</span><p>Umsetzung</p>
+          <div className="hero-index" aria-label="Interaktive Einstiege in das Kompetenzprofil">
+            {heroProcess.map((step) => (
+              <button
+                key={step.number}
+                type="button"
+                onClick={() => openProcessStep(step.discipline)}
+                aria-label={`${step.label}: ${step.description}. Passende Arbeiten anzeigen`}
+              >
+                <span>{step.number}</span>
+                <span className="hero-index-copy"><b>{step.label}</b><small>{step.description}</small></span>
+                <ArrowDownRight size={17} weight="bold" aria-hidden="true" />
+              </button>
+            ))}
           </div>
         </section>
 
@@ -350,9 +370,9 @@ export function App() {
 
         <section className="value-section" id="mehrwert" aria-labelledby="value-title">
           <SectionHeading
-            kicker="Mehrwert für Unternehmen"
-            title="Wirkung entsteht zwischen den Disziplinen."
-            text="Besonders wertvoll wird mein Profil dort, wo Gestaltung, Produktverständnis und technische Umsetzung nicht getrennt voneinander funktionieren."
+            kicker={valueIntro.kicker}
+            title={valueIntro.title}
+            text={valueIntro.text}
             id="value-title"
           />
           <div className="value-grid" data-reveal>
