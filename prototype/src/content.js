@@ -10,6 +10,7 @@ export const site = {
   phoneHref: "+436502419890",
   linkedin: "https://www.linkedin.com/in/andreas-schwarz1989",
   documentPdf: "Andreas-Schwarz-Lebenslauf-Portfolio.pdf",
+  location: "Leonding · Oberösterreich",
   address: ["Bruno-Gallée-Weg 8/19", "4060 Leonding", "Österreich"],
 };
 
@@ -17,7 +18,6 @@ export const navigation = [
   ["Start", "start"],
   ["Profil", "profil"],
   ["Arbeiten", "arbeiten"],
-  ["Video", "video"],
   ["Mehrwert", "mehrwert"],
   ["Kontakt", "kontakt"],
 ];
@@ -42,16 +42,16 @@ export const disciplines = [
     text: "Bild, Layout und Produktverständnis greifen ineinander, damit Nutzen und Funktion schneller erfassbar werden.",
   },
   {
-    id: "pim-workflows",
-    label: "PIM & Workflows",
-    short: "Abläufe vereinfachen",
-    text: "Strukturierte Daten, Layoutautomatisierung und eigene Werkzeuge reduzieren wiederkehrende manuelle Arbeit.",
+    id: "it-automatisierung",
+    label: "IT & Automatisierung",
+    short: "Systeme & Workflows",
+    text: "PIM, Skripte, IoT-Prototypen und eigene Werkzeuge verbinden Gestaltung mit IT und reduzieren wiederkehrende manuelle Arbeit.",
   },
   {
-    id: "fotografie",
-    label: "Fotografie",
-    short: "Menschen & Produkte",
-    text: "Produkt-, Business-, Portrait-, Event-, Architektur- und Drohnenfotografie mit einer klaren Bildaussage.",
+    id: "fotografie-video",
+    label: "Fotografie & Video",
+    short: "Menschen, Produkte & Räume",
+    text: "Fotografie und Bewegtbild machen Menschen, Produkte, Räume und Atmosphäre mit einer klaren visuellen Aussage erlebbar.",
   },
 ];
 
@@ -63,7 +63,7 @@ export const projects = [
     disciplines: "Produktidee · Sensorik · 3D · Prototyping",
     image: "smart-water-analyzer.png",
     alt: "Smart-Water-Analyzer-Prototyp mit zwei Messkammern und geöffnetem Gehäuse",
-    tags: ["3d-visualisierung", "produktkommunikation"],
+    tags: ["3d-visualisierung", "produktkommunikation", "it-automatisierung"],
     fit: "contain",
   },
   {
@@ -73,7 +73,7 @@ export const projects = [
     disciplines: "InDesign · Automatisierung · Übersetzung",
     image: "supertranslator-pro.png",
     alt: "Mehrsprachige Ausschnitte einer übersetzten Bedienungsanleitung",
-    tags: ["visual-design", "pim-workflows"],
+    tags: ["visual-design", "it-automatisierung"],
     fit: "contain",
   },
   {
@@ -110,7 +110,7 @@ export const projects = [
     disciplines: "Fotografie · Licht · Retusche",
     image: "employer-branding.jpg",
     alt: "Drei Menschen im Gespräch am Rand eines Swimmingpools",
-    tags: ["visual-design", "fotografie"],
+    tags: ["visual-design", "fotografie-video"],
   },
 ];
 
@@ -124,6 +124,7 @@ export const videos = [
     youtubeId: "24dl-1U2Dco",
     image: "gelsendiele-video.jpg",
     alt: "Gelsendiele mit Garten und Sitzbereich in der Abendsonne",
+    tags: ["fotografie-video"],
   },
 ];
 
@@ -136,7 +137,7 @@ export const valuePoints = [
   {
     number: "02",
     title: "Brücke zwischen Design und Technik",
-    text: "Gestaltung, strukturierte Daten, Automatisierung und Prototyping werden als zusammenhängende Aufgabe gedacht.",
+    text: "Gestaltung, IT, strukturierte Daten, Automatisierung und Prototyping werden als zusammenhängende Aufgabe gedacht.",
   },
   {
     number: "03",

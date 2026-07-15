@@ -15,6 +15,8 @@ Alle zentralen Inhalte stehen in `src/content.js`:
 - `career`: beruflicher Werdegang
 - `videos`: YouTube-Videos mit Vorschaubild, ID und Beschreibung
 
+Die aktuellen Kategorie-IDs sind `visual-design`, `3d-visualisierung`, `produktkommunikation`, `it-automatisierung` und `fotografie-video`.
+
 Texte immer innerhalb der Anführungszeichen ändern. Danach mit `npm run build` prüfen.
 
 ## Ein Projekt ergänzen
@@ -30,8 +32,10 @@ Mit `fit: "contain"` wird ein Motiv vollständig auf dunklem Grund gezeigt. Ohne
 
 1. Ein Vorschaubild im Format 16:9 nach `public/images/` kopieren.
 2. In `src/content.js` innerhalb von `videos` den vorhandenen Eintrag kopieren.
-3. `title`, `text`, `youtubeId`, `image` und `alt` anpassen.
+3. `title`, `text`, `youtubeId`, `image`, `alt` und `tags` anpassen.
 4. Die `youtubeId` ist der Teil der YouTube-Adresse nach `youtu.be/` beziehungsweise hinter `v=`.
+
+Videos sind aktuell der Kategorie `fotografie-video` zugeordnet und erscheinen dort gemeinsam mit den Fotoprojekten. Für diese Zuordnung `tags: ["fotografie-video"]` beibehalten.
 
 Das Video wird erst nach einem Klick geladen. Dadurch bleibt die Seite schnell und es wird nicht sofort eine Verbindung zu YouTube aufgebaut.
 

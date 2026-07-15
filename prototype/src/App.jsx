@@ -76,8 +76,8 @@ function VideoCard({ video }) {
   const [playing, setPlaying] = useState(false);
 
   return (
-    <article className="video-feature">
-      <div className="video-media">
+    <article className="project-card video-project-card">
+      <div className="project-image video-media">
         {playing ? (
           <iframe
             src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}?autoplay=1&rel=0`}
@@ -92,7 +92,7 @@ function VideoCard({ video }) {
           </button>
         )}
       </div>
-      <div className="video-copy">
+      <div className="project-copy">
         <p className="eyebrow">{video.eyebrow}</p>
         <h3>{video.title}</h3>
         <p>{video.text}</p>
@@ -121,6 +121,11 @@ export function App() {
     () => projects.filter((project) => project.tags.includes(selectedDiscipline)),
     [selectedDiscipline],
   );
+  const filteredVideos = useMemo(
+    () => videos.filter((video) => video.tags.includes(selectedDiscipline)),
+    [selectedDiscipline],
+  );
+  const selectedWorkCount = filteredProjects.length + filteredVideos.length;
 
   useEffect(() => {
     const sections = navigation.map(([, id]) => document.getElementById(id)).filter(Boolean);
@@ -159,11 +164,11 @@ export function App() {
       <main id="main-content">
         <section className="hero" id="start" aria-labelledby="hero-title">
           <div className="hero-copy">
-            <p className="eyebrow">Portfolio · 2026</p>
+            <p className="eyebrow hero-location"><span>{site.location}</span><span>Portfolio · 2026</span></p>
             <h1 id="hero-title"><span>Andreas</span><strong>Schwarz</strong></h1>
             <p className="hero-role">Visual Designer <i>|</i> Creative Engineer</p>
             <p className="hero-lead">Ich verbinde Design, Technik und Umsetzung – damit aus komplexen Produkten klare Kommunikation und aus Ideen greifbare Lösungen werden.</p>
-            <p className="hero-disciplines">Grafikdesign · Fotografie · 3D-Visualisierung · Produktdesign & Prototyping · Workflow-Automatisierung</p>
+            <p className="hero-disciplines">Grafikdesign · Fotografie & Video · 3D-Visualisierung · Produktdesign & Prototyping · IT & Workflow-Automatisierung</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#arbeiten">Projekte entdecken</a>
               <a className="button button-secondary" href={`${base}${site.documentPdf}`} target="_blank" rel="noreferrer">Lebenslauf & Portfolio als PDF</a>
@@ -182,13 +187,13 @@ export function App() {
           <SectionHeading
             kicker="Profil & Lebenslauf"
             title="Eine Laufbahn, die Disziplinen verbindet."
-            text="Fotografie war der Ausgangspunkt. Danach kamen Grafikdesign, Produktkommunikation und 3D – später Automatisierung, Elektronik und Prototyping."
+            text="Fotografie war der Ausgangspunkt. Danach kamen Grafikdesign, Produktkommunikation und 3D – später IT, Automatisierung, Elektronik und Prototyping."
             id="profile-title"
           />
           <div className="profile-layout" data-reveal>
             <aside>
               <p className="eyebrow">Creative Engineer</p>
-              <p>Ich gestalte nicht nur die Oberfläche. Ich entwickle visuelle Systeme, automatisiere Abläufe und mache Produktideen als Bild, 3D-Modell oder funktionalen Prototyp greifbar.</p>
+              <p>Ich gestalte nicht nur die Oberfläche. Ich verbinde visuelle Systeme mit IT, automatisiere Abläufe und mache Produktideen als Bild, 3D-Modell oder funktionalen Prototyp greifbar.</p>
               <a href={`${base}${site.documentPdf}`} target="_blank" rel="noreferrer">Lebenslauf & Portfolio ansehen ↗</a>
             </aside>
             <ol className="career-list">
@@ -204,12 +209,12 @@ export function App() {
 
         <section className="work-section" id="arbeiten" aria-labelledby="work-title">
           <SectionHeading
-            kicker="Ausgewählte Arbeiten"
-            title="Ein Profil. Fünf Perspektiven."
-            text="Wählen Sie einen Schwerpunkt und sehen Sie direkt die passenden Arbeiten – von visueller Gestaltung bis zu eigenen Werkzeugen."
+            kicker="Kompetenzfelder"
+            title="Fünf Kompetenzen. Eine Verbindung."
+            text="Die Schwerpunkte stehen nicht nebeneinander: Sie greifen dort ineinander, wo Gestaltung, Produktverständnis und IT gemeinsam eine Lösung ergeben."
             id="work-title"
           />
-          <div className="discipline-layout" data-reveal>
+          <div className="competence-explorer" data-reveal>
             <div className="discipline-tabs" role="tablist" aria-label="Arbeiten nach Schwerpunkt filtern">
               {disciplines.map((discipline, index) => (
                 <button
@@ -222,32 +227,22 @@ export function App() {
                   onClick={() => setSelectedDiscipline(discipline.id)}
                 >
                   <span>{String(index + 1).padStart(2, "0")}</span>
-                  <b>{discipline.label}</b>
-                  <small>{discipline.short}</small>
+                  <span className="discipline-label"><b>{discipline.label}</b><small>{discipline.short}</small></span>
                 </button>
               ))}
             </div>
-            <div className="discipline-summary" aria-live="polite">
-              <p>{selected.text}</p>
-              <span>{filteredProjects.length} {filteredProjects.length === 1 ? "ausgewählte Arbeit" : "ausgewählte Arbeiten"}</span>
+            <div className="discipline-panel">
+              <div className="discipline-summary" aria-live="polite">
+                <div><p className="eyebrow">{selected.label}</p><p>{selected.text}</p></div>
+                <span>{selectedWorkCount} {selectedWorkCount === 1 ? "ausgewählte Arbeit" : "ausgewählte Arbeiten"}</span>
+              </div>
+              <div className="project-grid project-grid-animated" key={selectedDiscipline} id="project-panel" role="tabpanel">
+                {filteredProjects.map((project) => <ProjectCard key={project.title} project={project} />)}
+                {filteredVideos.map((video) => <VideoCard key={video.youtubeId} video={video} />)}
+              </div>
             </div>
           </div>
-          <div className="project-grid project-grid-animated" key={selectedDiscipline} id="project-panel" role="tabpanel">
-            {filteredProjects.map((project) => <ProjectCard key={project.title} project={project} />)}
-          </div>
           <p className="portfolio-note">Die Website zeigt eine fokussierte Auswahl. Lebenslauf und vollständiges visuelles Portfolio finden Sie im <a href={`${base}${site.documentPdf}`} target="_blank" rel="noreferrer">gemeinsamen PDF ↗</a>.</p>
-        </section>
-
-        <section className="video-section" id="video" aria-labelledby="video-title">
-          <SectionHeading
-            kicker="Bewegtbild"
-            title="Arbeiten, die sich bewegen."
-            text="Video ergänzt die statischen Projekte um Atmosphäre und zeitlichen Ablauf. Weitere Arbeiten lassen sich später über dieselbe Struktur ergänzen."
-            id="video-title"
-          />
-          <div className="video-list" data-reveal>
-            {videos.map((video) => <VideoCard key={video.youtubeId} video={video} />)}
-          </div>
         </section>
 
         <section className="value-section" id="mehrwert" aria-labelledby="value-title">
