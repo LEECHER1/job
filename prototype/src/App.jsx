@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { ArrowsOutSimple, MapPin, X } from "@phosphor-icons/react";
 import {
   career,
   companyFit,
@@ -53,14 +54,20 @@ function Header({ activeSection }) {
   );
 }
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, onOpen }) {
   const base = import.meta.env.BASE_URL;
 
   return (
     <article className="project-card">
-      <div className={`project-image${project.fit === "contain" ? " is-contained" : ""}`}>
+      <button
+        type="button"
+        className={`project-image project-image-button${project.fit === "contain" ? " is-contained" : ""}`}
+        onClick={() => onOpen(project)}
+        aria-label={`${project.title} vergrößert ansehen`}
+      >
         <img src={`${base}images/${project.image}`} alt={project.alt} loading="lazy" />
-      </div>
+        <span><ArrowsOutSimple size={18} weight="bold" aria-hidden="true" /> Projekt ansehen</span>
+      </button>
       <div className="project-copy">
         <p className="eyebrow">{project.eyebrow}</p>
         <h3>{project.title}</h3>
@@ -68,6 +75,67 @@ function ProjectCard({ project }) {
         <span>{project.disciplines}</span>
       </div>
     </article>
+  );
+}
+
+function ProjectModal({ project, onClose }) {
+  const base = import.meta.env.BASE_URL;
+  const dialogRef = useRef(null);
+  const closeRef = useRef(null);
+
+  useEffect(() => {
+    const previouslyFocused = document.activeElement;
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") onClose();
+      if (event.key !== "Tab" || !dialogRef.current) return;
+
+      const focusable = dialogRef.current.querySelectorAll("button, a[href]");
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.body.classList.add("modal-open");
+    document.addEventListener("keydown", handleKeyDown);
+    closeRef.current?.focus();
+    return () => {
+      document.body.classList.remove("modal-open");
+      document.removeEventListener("keydown", handleKeyDown);
+      previouslyFocused?.focus();
+    };
+  }, [onClose]);
+
+  return (
+    <div className="project-modal-backdrop" onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
+      <div
+        className="project-modal"
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="project-modal-title"
+        aria-describedby="project-modal-description"
+      >
+        <button ref={closeRef} type="button" className="project-modal-close" onClick={onClose} aria-label="Projektansicht schließen">
+          <X size={24} weight="bold" aria-hidden="true" />
+        </button>
+        <div className={`project-modal-image${project.fit === "contain" ? " is-contained" : ""}`}>
+          <img src={`${base}images/${project.image}`} alt={project.alt} />
+        </div>
+        <div className="project-modal-copy">
+          <p className="eyebrow">{project.eyebrow}</p>
+          <h2 id="project-modal-title">{project.title}</h2>
+          <p id="project-modal-description">{project.text}</p>
+          <span>{project.disciplines}</span>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -116,6 +184,8 @@ export function App() {
   const base = import.meta.env.BASE_URL;
   const [selectedDiscipline, setSelectedDiscipline] = useState(disciplines[0].id);
   const [activeSection, setActiveSection] = useState("start");
+  const [activeProject, setActiveProject] = useState(null);
+  const closeProject = useCallback(() => setActiveProject(null), []);
   const selected = disciplines.find((item) => item.id === selectedDiscipline) ?? disciplines[0];
   const filteredProjects = useMemo(
     () => projects.filter((project) => project.tags.includes(selectedDiscipline)),
@@ -164,7 +234,11 @@ export function App() {
       <main id="main-content">
         <section className="hero" id="start" aria-labelledby="hero-title">
           <div className="hero-copy">
-            <p className="eyebrow hero-location"><span>{site.location}</span><span>Portfolio · 2026</span></p>
+            <p className="eyebrow hero-location">
+              <span className="hero-location-place"><MapPin size={15} weight="bold" aria-hidden="true" />{site.location}</span>
+              <a href={`tel:${site.phoneHref}`}>Tel.: {site.phoneCompact}</a>
+              <span>Portfolio · 2026</span>
+            </p>
             <h1 id="hero-title"><span>Andreas</span><strong>Schwarz</strong></h1>
             <p className="hero-role">Visual Designer <i>|</i> Creative Engineer</p>
             <p className="hero-lead">Ich verbinde Design, Technik und Umsetzung – damit aus komplexen Produkten klare Kommunikation und aus Ideen greifbare Lösungen werden.</p>
@@ -210,7 +284,7 @@ export function App() {
         <section className="work-section" id="arbeiten" aria-labelledby="work-title">
           <SectionHeading
             kicker="Kompetenzfelder"
-            title="Fünf Kompetenzen. Eine Verbindung."
+            title="Sechs Kompetenzen. Eine Verbindung."
             text="Die Schwerpunkte stehen nicht nebeneinander: Sie greifen dort ineinander, wo Gestaltung, Produktverständnis und IT gemeinsam eine Lösung ergeben."
             id="work-title"
           />
@@ -237,7 +311,7 @@ export function App() {
                 <span>{selectedWorkCount} {selectedWorkCount === 1 ? "ausgewählte Arbeit" : "ausgewählte Arbeiten"}</span>
               </div>
               <div className="project-grid project-grid-animated" key={selectedDiscipline} id="project-panel" role="tabpanel">
-                {filteredProjects.map((project) => <ProjectCard key={project.title} project={project} />)}
+                {filteredProjects.map((project) => <ProjectCard key={project.title} project={project} onOpen={setActiveProject} />)}
                 {filteredVideos.map((video) => <VideoCard key={video.youtubeId} video={video} />)}
               </div>
             </div>
@@ -289,6 +363,7 @@ export function App() {
         <p>© 2026 {site.name} · {site.role}</p>
         <a href="#start">Nach oben ↑</a>
       </footer>
+      {activeProject && <ProjectModal project={activeProject} onClose={closeProject} />}
     </>
   );
 }

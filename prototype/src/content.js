@@ -8,9 +8,10 @@ export const site = {
   email: "schwarz.andreas@liwest.at",
   phoneLabel: "+43 650 24 19 890",
   phoneHref: "+436502419890",
+  phoneCompact: "06502419890",
   linkedin: "https://www.linkedin.com/in/andreas-schwarz1989",
   documentPdf: "Andreas-Schwarz-Lebenslauf-Portfolio.pdf",
-  location: "Leonding · Oberösterreich",
+  location: "Leonding",
   address: ["Bruno-Gallée-Weg 8/19", "4060 Leonding", "Österreich"],
 };
 
@@ -24,9 +25,9 @@ export const navigation = [
 
 export const disciplines = [
   {
-    id: "visual-design",
-    label: "Visual Design",
-    short: "Visuelle Systeme",
+    id: "grafikdesign",
+    label: "Grafikdesign",
+    short: "Visuelle Designs",
     text: "Klare Gestaltung für Produkte, Kampagnen und Markenauftritte – von der Idee bis zur druck- oder digitalfertigen Umsetzung.",
   },
   {
@@ -48,10 +49,16 @@ export const disciplines = [
     text: "PIM, Skripte, IoT-Prototypen und eigene Werkzeuge verbinden Gestaltung mit IT und reduzieren wiederkehrende manuelle Arbeit.",
   },
   {
-    id: "fotografie-video",
-    label: "Fotografie & Video",
+    id: "fotografie",
+    label: "Fotografie",
     short: "Menschen, Produkte & Räume",
-    text: "Fotografie und Bewegtbild machen Menschen, Produkte, Räume und Atmosphäre mit einer klaren visuellen Aussage erlebbar.",
+    text: "Fotografie macht Menschen, Produkte und Räume mit einer klaren visuellen Aussage erlebbar.",
+  },
+  {
+    id: "video",
+    label: "Videos",
+    short: "Bewegtbild & Atmosphäre",
+    text: "Bewegtbild ergänzt die statischen Arbeiten um Atmosphäre, Rhythmus, Raum und zeitlichen Ablauf.",
   },
 ];
 
@@ -73,7 +80,7 @@ export const projects = [
     disciplines: "InDesign · Automatisierung · Übersetzung",
     image: "supertranslator-pro.png",
     alt: "Mehrsprachige Ausschnitte einer übersetzten Bedienungsanleitung",
-    tags: ["visual-design", "it-automatisierung"],
+    tags: ["grafikdesign", "it-automatisierung"],
     fit: "contain",
   },
   {
@@ -83,7 +90,7 @@ export const projects = [
     disciplines: "3D · Rendering · Produktinszenierung",
     image: "helden-des-sommers.jpg",
     alt: "Mehrere Poolroboter in einer blau inszenierten Unterwasserwelt",
-    tags: ["visual-design", "3d-visualisierung", "produktkommunikation"],
+    tags: ["grafikdesign", "3d-visualisierung", "produktkommunikation"],
   },
   {
     title: "3D & Produktkommunikation",
@@ -110,7 +117,7 @@ export const projects = [
     disciplines: "Fotografie · Licht · Retusche",
     image: "employer-branding.jpg",
     alt: "Drei Menschen im Gespräch am Rand eines Swimmingpools",
-    tags: ["visual-design", "fotografie-video"],
+    tags: ["grafikdesign", "fotografie"],
   },
 ];
 
@@ -124,7 +131,7 @@ export const videos = [
     youtubeId: "24dl-1U2Dco",
     image: "gelsendiele-video.jpg",
     alt: "Gelsendiele mit Garten und Sitzbereich in der Abendsonne",
-    tags: ["fotografie-video"],
+    tags: ["video"],
   },
 ];
 

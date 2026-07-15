@@ -6,7 +6,7 @@ Responsive Bewerbungs- und Portfolio-Website für:
 - Positionierung: Visual Designer | Creative Engineer
 - Sprache der ersten Version: Deutsch
 
-Die Website übersetzt den Schwarz-Weiß-Charakter des PDF-Portfolios in ein responsives digitales Designsystem mit dezentem Amber-Akzent, echten Projektbildern und einem interaktiven Kompetenznavigator. IT & Automatisierung ist als verbindende Kompetenz sichtbar; Video ist gemeinsam mit Fotografie organisiert.
+Die Website übersetzt den Schwarz-Weiß-Charakter des PDF-Portfolios in ein responsives digitales Designsystem mit dezentem Amber-Akzent, echten Projektbildern und einem interaktiven Kompetenznavigator. IT & Automatisierung ist als verbindende Kompetenz sichtbar; Video bildet eine eigene sechste Kategorie. Projektbilder lassen sich in einem großen Detaildialog öffnen.
 
 ## Lokal starten
 

@@ -15,7 +15,7 @@ Alle zentralen Inhalte stehen in `src/content.js`:
 - `career`: beruflicher Werdegang
 - `videos`: YouTube-Videos mit Vorschaubild, ID und Beschreibung
 
-Die aktuellen Kategorie-IDs sind `visual-design`, `3d-visualisierung`, `produktkommunikation`, `it-automatisierung` und `fotografie-video`.
+Die aktuellen Kategorie-IDs sind `grafikdesign`, `3d-visualisierung`, `produktkommunikation`, `it-automatisierung`, `fotografie` und `video`.
 
 Texte immer innerhalb der Anführungszeichen ändern. Danach mit `npm run build` prüfen.
 
@@ -35,7 +35,7 @@ Mit `fit: "contain"` wird ein Motiv vollständig auf dunklem Grund gezeigt. Ohne
 3. `title`, `text`, `youtubeId`, `image`, `alt` und `tags` anpassen.
 4. Die `youtubeId` ist der Teil der YouTube-Adresse nach `youtu.be/` beziehungsweise hinter `v=`.
 
-Videos sind aktuell der Kategorie `fotografie-video` zugeordnet und erscheinen dort gemeinsam mit den Fotoprojekten. Für diese Zuordnung `tags: ["fotografie-video"]` beibehalten.
+Videos sind aktuell der eigenen sechsten Kategorie `video` zugeordnet. Für diese Zuordnung `tags: ["video"]` beibehalten.
 
 Das Video wird erst nach einem Klick geladen. Dadurch bleibt die Seite schnell und es wird nicht sofort eine Verbindung zu YouTube aufgebaut.
 
@@ -46,3 +46,5 @@ Die öffentliche Datei liegt unter `public/Andreas-Schwarz-Lebenslauf-Portfolio.
 ## Farben und Layout
 
 Die wichtigsten Designwerte stehen am Anfang von `src/styles.css` als CSS-Variablen. Der Akzent ist `--accent: #b86f23`.
+
+Die Desktopbreite wird über `--page: min(92vw, 1760px)` gesteuert. Projektbilder öffnen beim Anklicken automatisch den großen Projektdialog; dafür ist kein zusätzlicher Inhaltseintrag nötig.

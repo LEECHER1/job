@@ -2,64 +2,36 @@
 
 Datum: 15. Juli 2026
 
-## Quelle und Implementierung
+## Quelle
 
-Visuelle Quelle der freigegebenen Kombination:
+- bestehende freigegebene Portfolio-Website und PDF-Designsystem
+- Nutzer-Screenshot zur breiteren Desktopdarstellung: `/var/folders/8j/_vxrcqdx2tbdh10yy10fnqsx25bgq1/T/codex-clipboard-49ec1680-5cfa-4e34-a2bf-04aaf8f79d31.png`
+- Nutzer-Screenshots zu Standort, Kategoriebezeichnung und Kompetenznavigator aus der aktuellen Anfrage
 
-- `/Users/andreas.schwarz/.codex/generated_images/019f6237-4aad-7f12-a500-40a70159a8c5/exec-649cda0e-c7c7-40a3-8695-7f5f78b1793e.png`
-- Grundlayout und Interaktion aus Variante 2
-- Navigation und gedämpfter Amber-Akzent aus Variante 3
-- Originalportrait mit harter diagonaler Kante aus Variante 1
+## Aktueller Implementierungsstand
 
-Browsergerenderte Implementierung:
+- Desktopfläche auf `92vw` mit maximal `1760px` erweitert
+- Favicon mit dem Buchstaben A ergänzt
+- Hero zeigt Map-Pin, Leonding und `Tel.: 06502419890`
+- Kategorie 01 in Grafikdesign / Visuelle Designs umbenannt
+- Video als eigene sechste Kategorie ergänzt
+- alle Projektbilder öffnen einen großen Dialog mit Bild und vorhandenem Projekttext
+- Dialog besitzt Schließen-Schaltfläche, Escape-Unterstützung, Fokusführung und Scroll-Sperre
 
-- Desktop-Start, 3584 × 2278 px: `/tmp/andreas-it-home.png`
-- Desktop-Kompetenznavigator, 3584 × 2278 px: `/tmp/andreas-it-work-final.png`
-- IT-Kategorie, 3584 × 2278 px: `/tmp/andreas-it-category-top.png`
-- Fotografie & Video, 3584 × 2278 px: `/tmp/andreas-photo-video.png`
-- aktives Video, 3584 × 2278 px: `/tmp/andreas-photo-video-playing.png`
-- Mobilansicht, 1124 × 2104 px bei 450 × 940 pt Safari-Fenster: `/tmp/andreas-it-mobile-work-final-2.png`
-
-Geprüfte Zustände: Start, Navigation, Visual Design, IT & Automatisierung, Fotografie & Video, Click-to-load-Video und mobile Kategorienavigation.
-
-## Vergleich
-
-Die freigegebene Referenz und die Desktop-Implementierung wurden in einem gemeinsamen Vergleich geöffnet. Ebenso wurden die bisherige Kategorienansicht und der neue Kompetenznavigator gemeinsam verglichen. Browserrahmen und Zuschnitt unterscheiden sich, die relevanten Inhaltsregionen waren jedoch vollständig sichtbar. Ein zusätzlicher Detailausschnitt war nicht nötig, weil Typografie, Regeln, Kategorien, Projektbilder und Zustände in den hochauflösenden Vollansichten lesbar waren.
-
-### Erforderliche Gestaltungsflächen
-
-- Typografie: Manrope, starke Andreas/Schwarz-Hierarchie, klare Versalien und lesbare optische Gewichte entsprechen der freigegebenen Richtung. Die mobile Überschrift wurde nach dem ersten Vergleich verdichtet.
-- Abstände und Raster: Das warme, editoriale Großraster bleibt erhalten. Der Navigator verbindet Kategorie, Erklärung und Arbeit kompakter als die vorherige fünfspaltige Kopfzeile.
-- Farben und Tokens: Warmweiß, Schwarz, harte Linien und der zurückhaltende Amber-Akzent `#B86F23` sind konsistent.
-- Bilder: ausschließlich reale Projektbilder und das Originalportrait; Schärfe, Crop und diagonale Portraitkante sind stimmig. Keine Platzhalter oder nachgebauten Assets.
-- Inhalt: Leonding ist im Hero sichtbar. IT & Automatisierung ist durch PDF-Inhalte belegt. Video ist in Fotografie & Video integriert. Es wurden keine Tätigkeiten, Qualifikationen oder Ergebnisse erfunden.
-
-## Interaktion und Technik
+## Technische Prüfung
 
 - Produktions-Build mit Vite: bestanden
-- Desktop-Navigation und aktive Zustände: bestanden
-- fünf Kategorien inklusive Beschreibung, Anzahl, Animation und Projektwechsel: bestanden
-- IT & Automatisierung zeigt Smart Water Analyzer und SuperTranslator Pro: bestanden
-- Fotografie & Video zeigt Fotoarbeit und Video im selben Raster: bestanden
-- Click-to-load-Embed über `youtube-nocookie.com`: bestanden
-- mobile Navigation mit fünf Zielen: bestanden
-- horizontal scrollbare Kategorien ohne sichtbare Scrollbar oder Seitenüberbreite: bestanden
-- gemeinsames Lebenslauf- und Portfolio-PDF erreichbar: bestanden
-- Kontaktbereich mit E-Mail, Telefon, LinkedIn und Anschrift: bestanden
-- reduzierte Bewegung über `prefers-reduced-motion`: umgesetzt
-- keine sichtbaren Browserfehler beim Navigieren und Abspielen; ein programmatischer Zugriff auf die Safari-Konsole war in dieser Umgebung deaktiviert
-
-## Vergleichshistorie
-
-1. P2 – Die mobile Einleitung beanspruchte zu viel Höhe, sodass die Kategorien im ersten sichtbaren Bereich noch nicht auftauchten.
-2. Fix – Mobile Oberkante, Überschrift, Absatzabstand und Abschlussabstand wurden verdichtet.
-3. Nachprüfung – `/tmp/andreas-it-mobile-work-final-2.png` zeigt Überschrift, Erklärung, Kategorieauswahl und den Beginn der Arbeit gemeinsam ohne Überbreite.
+- öffentliche Dateien per FTP aktualisiert: bestanden
+- lokale Vorschau verfügbar: bestanden
+- In-App-Browser konnte weder die lokale Vorschau noch die öffentliche Domain öffnen: durch Browser-Sicherheitsrichtlinie blockiert
+- deshalb fehlen aktuelle browsergerenderte Screenshots, Interaktionstest, Konsolenprüfung und der visuelle Vergleich der neuen Fassung
 
 ## Befund
 
-- P0: keine
-- P1: keine
-- P2: keine
-- Restlücke: Safari-Konsole konnte nicht automatisiert ausgelesen werden; Build, sichtbare Interaktion und Netzwerkziel des Embeds wurden dennoch erfolgreich geprüft.
+- P0: keine aus dem Build ableitbar
+- P1: browserbasierte Prüfung der neuen Änderungen ausstehend
+- P2: visuelle Feinprüfung der breiteren Fläche und des mobilen Dialogs ausstehend
 
-final result: passed
+Blocker: Die vorgeschriebene Browseroberfläche verweigert in dieser Umgebung sowohl `localhost` als auch `theblackpixel.at`. Laut Browser-Richtlinie darf nicht auf eine alternative Browseroberfläche ausgewichen werden.
+
+final result: blocked
