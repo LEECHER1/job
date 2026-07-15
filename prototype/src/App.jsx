@@ -284,7 +284,7 @@ export function App() {
           </div>
           <figure className="hero-image">
             <img src={`${base}images/andreas-schwarz.jpg`} alt="Andreas Schwarz im schwarzen Sakko vor moderner Architektur" />
-            <figcaption><b>Design + IT</b><span>visuell gedacht<br />technisch umgesetzt</span></figcaption>
+            <figcaption><b>Erfahrung aus</b><span>Design, Technik<br />und Umsetzung</span></figcaption>
           </figure>
           <div className="hero-index" aria-label="Interaktive Einstiege in das Kompetenzprofil">
             {heroProcess.map((step) => (
