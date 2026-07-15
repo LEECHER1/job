@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { ArrowsOutSimple, MapPin, X } from "@phosphor-icons/react";
+import { ArrowsOutSimple, EnvelopeSimple, MapPin, X } from "@phosphor-icons/react";
 import {
   career,
   companyFit,
@@ -73,6 +73,24 @@ function ProjectCard({ project, onOpen }) {
         <h3>{project.title}</h3>
         <p>{project.text}</p>
         <span>{project.disciplines}</span>
+      </div>
+    </article>
+  );
+}
+
+function PlaceholderCard({ discipline }) {
+  const base = import.meta.env.BASE_URL;
+
+  return (
+    <article className="project-card project-placeholder" aria-label={`Platzhalter für eine weitere Arbeit aus ${discipline.label}`}>
+      <div className="project-image placeholder-image" aria-hidden="true">
+        <img src={`${base}favicon.svg`} alt="" />
+      </div>
+      <div className="project-copy">
+        <p className="eyebrow">In Vorbereitung</p>
+        <h3>Projekt folgt</h3>
+        <p>Hier wird eine weitere ausgewählte Arbeit aus dem Bereich {discipline.label} ergänzt.</p>
+        <span>Platzhalter · Inhalt folgt</span>
       </div>
     </article>
   );
@@ -196,6 +214,13 @@ export function App() {
     [selectedDiscipline],
   );
   const selectedWorkCount = filteredProjects.length + filteredVideos.length;
+  const visibleWorks = useMemo(
+    () => [
+      ...filteredProjects.map((project) => ({ type: "project", item: project })),
+      ...filteredVideos.map((video) => ({ type: "video", item: video })),
+    ].slice(0, 4),
+    [filteredProjects, filteredVideos],
+  );
 
   useEffect(() => {
     const sections = navigation.map(([, id]) => document.getElementById(id)).filter(Boolean);
@@ -236,7 +261,8 @@ export function App() {
           <div className="hero-copy">
             <p className="eyebrow hero-location">
               <span className="hero-location-place"><MapPin size={15} weight="bold" aria-hidden="true" />{site.location}</span>
-              <a href={`tel:${site.phoneHref}`}>Tel.: {site.phoneCompact}</a>
+              <a href={`tel:${site.phoneHref}`}>Tel.: {site.phoneLabel}</a>
+              <a href={`mailto:${site.email}`}><EnvelopeSimple size={15} weight="bold" aria-hidden="true" />{site.email}</a>
               <span>Portfolio · 2026</span>
             </p>
             <h1 id="hero-title"><span>Andreas</span><strong>Schwarz</strong></h1>
@@ -311,8 +337,12 @@ export function App() {
                 <span>{selectedWorkCount} {selectedWorkCount === 1 ? "ausgewählte Arbeit" : "ausgewählte Arbeiten"}</span>
               </div>
               <div className="project-grid project-grid-animated" key={selectedDiscipline} id="project-panel" role="tabpanel">
-                {filteredProjects.map((project) => <ProjectCard key={project.title} project={project} onOpen={setActiveProject} />)}
-                {filteredVideos.map((video) => <VideoCard key={video.youtubeId} video={video} />)}
+                {Array.from({ length: 4 }, (_, index) => {
+                  const work = visibleWorks[index];
+                  if (!work) return <PlaceholderCard key={`${selectedDiscipline}-placeholder-${index}`} discipline={selected} />;
+                  if (work.type === "video") return <VideoCard key={work.item.youtubeId} video={work.item} />;
+                  return <ProjectCard key={work.item.title} project={work.item} onOpen={setActiveProject} />;
+                })}
               </div>
             </div>
           </div>

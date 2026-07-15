@@ -8,7 +8,6 @@ export const site = {
   email: "schwarz.andreas@liwest.at",
   phoneLabel: "+43 650 24 19 890",
   phoneHref: "+436502419890",
-  phoneCompact: "06502419890",
   linkedin: "https://www.linkedin.com/in/andreas-schwarz1989",
   documentPdf: "Andreas-Schwarz-Lebenslauf-Portfolio.pdf",
   location: "Leonding",

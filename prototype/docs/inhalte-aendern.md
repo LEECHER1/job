@@ -28,6 +28,8 @@ Texte immer innerhalb der Anführungszeichen ändern. Danach mit `npm run build`
 
 Mit `fit: "contain"` wird ein Motiv vollständig auf dunklem Grund gezeigt. Ohne `fit` wird das Bild formatfüllend beschnitten.
 
+Pro Kategorie werden automatisch genau vier Karten angezeigt. Solange weniger als vier passende Projekte oder Videos vorhanden sind, füllt die Website die freien Positionen mit neutralen „Projekt folgt“-Platzhaltern. Sobald ein neuer passender Eintrag ergänzt wird, ersetzt er automatisch den nächsten Platzhalter.
+
 ## Ein Video ergänzen
 
 1. Ein Vorschaubild im Format 16:9 nach `public/images/` kopieren.
@@ -47,4 +49,4 @@ Die öffentliche Datei liegt unter `public/Andreas-Schwarz-Lebenslauf-Portfolio.
 
 Die wichtigsten Designwerte stehen am Anfang von `src/styles.css` als CSS-Variablen. Der Akzent ist `--accent: #b86f23`.
 
-Die Desktopbreite wird über `--page: min(92vw, 1760px)` gesteuert. Projektbilder öffnen beim Anklicken automatisch den großen Projektdialog; dafür ist kein zusätzlicher Inhaltseintrag nötig.
+Die Desktopbreite wird über `--page: min(92vw, 1760px)` gesteuert. Projektbilder öffnen beim Anklicken automatisch den großen, an die Bildschirmgröße gebundenen Projektdialog; dafür ist kein zusätzlicher Inhaltseintrag nötig.
