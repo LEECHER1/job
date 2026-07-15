@@ -20,9 +20,12 @@ When implementing from a selected generated mock, treat that image as the source
 - `IT & Automatisierung` is an explicit competence grounded in the PDF through PIM, scripting, workflow automation, ESP32/MQTT/Home Assistant and IoT prototyping.
 - Positioning is `Visual Designer | Creative Engineer`, supported by the exact bridge statement supplied by the user and a plain-language explanation of `Creative Engineer`.
 - `Leonding` with a map-pin icon, the internationally formatted telephone number and the e-mail address must remain directly visible in the hero.
+- Do not show a `Portfolio · 2026` label in the hero contact line. The bridge statement breaks before `damit`; the discipline line breaks before `Produktdesign & Prototyping`.
+- The hero content cluster sits slightly above optical center on desktop, while mobile uses normal document flow.
 - Every competence category always shows four work cards in a stable 2×2 desktop grid. Empty positions use neutral, clearly labelled placeholders until real projects are added.
 - Project images open an accessible, viewport-bound large-format dialog containing the image and the existing project text. The dialog itself must never create horizontal or vertical scrollbars.
 - Focus outlines on category tabs, image buttons and the modal close button stay inset so they do not break the editorial frame.
+- The desktop competence explorer frame must close below both the project grid and the left category rail.
 - Desktop content uses a wider but still bounded editorial frame: `92vw` up to `1760px`, centered on ultrawide screens.
 - The CV/profile section follows the hero, before project work.
 - GitHub and Impressum links are intentionally absent from the public page.

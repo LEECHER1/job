@@ -263,12 +263,11 @@ export function App() {
               <span className="hero-location-place"><MapPin size={15} weight="bold" aria-hidden="true" />{site.location}</span>
               <a href={`tel:${site.phoneHref}`}>Tel.: {site.phoneLabel}</a>
               <a href={`mailto:${site.email}`}><EnvelopeSimple size={15} weight="bold" aria-hidden="true" />{site.email}</a>
-              <span>Portfolio · 2026</span>
             </p>
             <h1 id="hero-title"><span>Andreas</span><strong>Schwarz</strong></h1>
             <p className="hero-role">Visual Designer <i>|</i> Creative Engineer</p>
-            <p className="hero-lead">Ich verbinde Design, Technik und Umsetzung – damit aus komplexen Produkten klare Kommunikation und aus Ideen greifbare Lösungen werden.</p>
-            <p className="hero-disciplines">Grafikdesign · Fotografie & Video · 3D-Visualisierung · Produktdesign & Prototyping · IT & Workflow-Automatisierung</p>
+            <p className="hero-lead">Ich verbinde Design, Technik und Umsetzung –<br />damit aus komplexen Produkten klare Kommunikation und aus Ideen greifbare Lösungen werden.</p>
+            <p className="hero-disciplines">Grafikdesign · Fotografie & Video · 3D-Visualisierung ·<br />Produktdesign & Prototyping · IT & Workflow-Automatisierung</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#arbeiten">Projekte entdecken</a>
               <a className="button button-secondary" href={`${base}${site.documentPdf}`} target="_blank" rel="noreferrer">Lebenslauf & Portfolio als PDF</a>

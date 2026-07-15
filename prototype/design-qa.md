@@ -8,6 +8,7 @@ Datum: 15. Juli 2026
 - Nutzer-Screenshot zur breiteren Desktopdarstellung: `/var/folders/8j/_vxrcqdx2tbdh10yy10fnqsx25bgq1/T/codex-clipboard-49ec1680-5cfa-4e34-a2bf-04aaf8f79d31.png`
 - Nutzer-Screenshots zu Standort, Kategoriebezeichnung und Kompetenznavigator aus der aktuellen Anfrage
 - Nutzer-Screenshots vom 15. Juli 2026 zu überbreitem Dialog, uneinheitlicher Kartenanzahl und aus dem Raster ragenden Fokusrahmen
+- Nutzer-Screenshots vom 15. Juli 2026 bestätigen den nun scrollfreien Dialog und zeigen als neue Zielkorrekturen den offenen unteren Kategorienrahmen, Hero-Position und gewünschte Zeilenumbrüche
 
 ## Aktueller Implementierungsstand
 
@@ -21,6 +22,10 @@ Datum: 15. Juli 2026
 - Dialog besitzt Schließen-Schaltfläche, Escape-Unterstützung, Fokusführung und Seitenscroll-Sperre
 - Dialog ist in Breite und Höhe an den Viewport gebunden und besitzt keine eigenen Scrollleisten
 - Fokusrahmen von Kategorien, Projektbildern und Schließen-Schaltfläche liegen innerhalb der jeweiligen Komponente
+- `Portfolio · 2026` aus der Hero-Kontaktzeile entfernt
+- kontrollierte Zeilenumbrüche vor `damit` und `Produktdesign & Prototyping` ergänzt
+- Hero-Inhaltsblock auf Desktop leicht nach oben verschoben
+- untere Rahmenkante der linken Kategorienleiste geschlossen
 
 ## Technische Prüfung
 
@@ -34,7 +39,7 @@ Datum: 15. Juli 2026
 
 - P0: keine aus dem Build ableitbar
 - P1: browserbasierte Prüfung der neuen Änderungen ausstehend
-- P2: visuelle Feinprüfung des 2×2-Projektrasters und des viewportgebundenen Dialogs ausstehend
+- P2: visuelle Nachprüfung der neuen Hero-Position, Zeilenumbrüche und geschlossenen Rahmenkante ausstehend
 
 Blocker: Die vorgeschriebene Browseroberfläche verweigert in dieser Umgebung sowohl `localhost` als auch `theblackpixel.at`. Laut Browser-Richtlinie darf nicht auf eine alternative Browseroberfläche ausgewichen werden.
 
