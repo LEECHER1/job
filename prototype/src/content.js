@@ -226,6 +226,33 @@ export const videos = [
     alt: "Gelsendiele mit Garten und Sitzbereich in der Abendsonne",
     tags: ["video"],
   },
+  {
+    title: "Thailand Urlaub 2024/2025",
+    eyebrow: "Video",
+    text: "Reisevideo aus Thailand aus den Jahren 2024 und 2025.",
+    youtubeId: "wbqwdW-8GOA",
+    image: "video-thailand-2024-2025.jpg",
+    alt: "Vorschaubild zum Video Thailand Urlaub 2024/2025",
+    tags: ["video"],
+  },
+  {
+    title: "Video – Poolroboter",
+    eyebrow: "Video",
+    text: "Videoarbeit rund um einen Poolroboter.",
+    youtubeId: "HIYCwtnBErs",
+    image: "video-poolroboter.jpg",
+    alt: "Vorschaubild zum Video über einen Poolroboter",
+    tags: ["video"],
+  },
+  {
+    title: "Video – 3D-Roboter",
+    eyebrow: "Video",
+    text: "Videoarbeit mit einem 3D-Roboter.",
+    youtubeId: "SKylxGNwffY",
+    image: "video-3d-roboter.jpg",
+    alt: "Vorschaubild zum Video mit einem 3D-Roboter",
+    tags: ["video"],
+  },
 ];
 
 export const valuePoints = [
