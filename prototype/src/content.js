@@ -126,6 +126,16 @@ export const projects = [
     tags: ["fotografie"],
   },
   {
+    title: "Dogius",
+    eyebrow: "Grafikdesign & 3D-Visualisierung",
+    text: "Gestaltung und Produktdarstellung für ein modulares Hundeschlafplatzsystem.",
+    disciplines: "Grafikdesign · Layout · 3D-Visualisierung",
+    image: "graphic-dogius.jpg",
+    alt: "Dogius-Markenmotiv mit Hund auf einem modularen Schlafplatz",
+    tags: ["grafikdesign", "3d-visualisierung"],
+    fit: "contain",
+  },
+  {
     title: "Bietschies",
     eyebrow: "Grafikdesign",
     text: "Marken- und Broschürengestaltung für eine Ledertaschenmarke mit hochwertiger, editorialer Bildsprache.",
@@ -143,16 +153,6 @@ export const projects = [
     image: "graphic-selena-home.jpg",
     alt: "Selena-Home-Katalogmotiv mit textilen Wohnaccessoires",
     tags: ["grafikdesign"],
-    fit: "contain",
-  },
-  {
-    title: "Dogius",
-    eyebrow: "Grafikdesign & 3D-Visualisierung",
-    text: "Gestaltung und Produktdarstellung für ein modulares Hundeschlafplatzsystem.",
-    disciplines: "Grafikdesign · Layout · 3D-Visualisierung",
-    image: "graphic-dogius.jpg",
-    alt: "Dogius-Markenmotiv mit Hund auf einem modularen Schlafplatz",
-    tags: ["grafikdesign", "3d-visualisierung"],
     fit: "contain",
   },
   {
