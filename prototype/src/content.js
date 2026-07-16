@@ -51,16 +51,16 @@ export const valueIntro = {
 
 export const disciplines = [
   {
-    id: "fotografie",
-    label: "Fotografie",
-    short: "Menschen, Produkte & Räume",
-    text: "Business-, Lifestyle- und Produktfotografie mit klarer Bildidee, kontrolliertem Licht und sorgfältiger Ausarbeitung.",
-  },
-  {
     id: "grafikdesign",
     label: "Grafikdesign",
     short: "Layout, Marke & Print",
     text: "Gestaltung für Marken, Broschüren, Kataloge und Geschäftsausstattung – strukturiert und bis zur fertigen Anwendung gedacht.",
+  },
+  {
+    id: "fotografie",
+    label: "Fotografie",
+    short: "Menschen, Produkte & Räume",
+    text: "Business-, Lifestyle- und Produktfotografie mit klarer Bildidee, kontrolliertem Licht und sorgfältiger Ausarbeitung.",
   },
   {
     id: "3d-visualisierung",
@@ -127,6 +127,7 @@ export const projects = [
     image: "graphic-steinbach-testkit-flyer.jpg",
     alt: "Vorder- und Rückseite eines Steinbach-Flyers für das Testkit Water Analyzer",
     tags: ["grafikdesign"],
+    order: 4,
   },
   {
     title: "Poolwelt",
@@ -166,6 +167,7 @@ export const projects = [
     image: "graphic-pool-champion-action.jpg",
     alt: "Geöffnete Pool-Champion-Action-Broschüre mit Poolpflegeprodukten und sommerlichem Bildmotiv",
     tags: ["grafikdesign"],
+    order: 2,
     embedUrl: "https://indd.adobe.com/embed/5f0317d3-ac18-45dc-8d0d-f503bcd994a1",
     externalUrl: "https://indd.adobe.com/view/5f0317d3-ac18-45dc-8d0d-f503bcd994a1",
   },
@@ -177,6 +179,7 @@ export const projects = [
     image: "graphic-edura-catalog.jpg",
     alt: "Mock-up eines Edura-Katalogs für farbige Gartenmöbel-Auflagen",
     tags: ["grafikdesign"],
+    order: 3,
   },
   {
     title: "Steinbach App",
@@ -187,6 +190,7 @@ export const projects = [
     alt: "Werbeeinschaltung für die Steinbach App mit Smartphone und App-Oberfläche",
     tags: ["grafikdesign"],
     fit: "contain",
+    order: 1,
   },
   {
     title: "Bietschies",

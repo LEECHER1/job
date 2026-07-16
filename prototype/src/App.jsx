@@ -235,7 +235,9 @@ export function App() {
   }, []);
   const selected = disciplines.find((item) => item.id === selectedDiscipline) ?? disciplines[0];
   const filteredProjects = useMemo(
-    () => projects.filter((project) => project.tags.includes(selectedDiscipline)),
+    () => projects
+      .filter((project) => project.tags.includes(selectedDiscipline))
+      .sort((a, b) => (a.order ?? Number.MAX_SAFE_INTEGER) - (b.order ?? Number.MAX_SAFE_INTEGER)),
     [selectedDiscipline],
   );
   const filteredVideos = useMemo(
