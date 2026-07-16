@@ -167,6 +167,11 @@ function ProjectModal({ project, onClose }) {
               In voller Größe öffnen ↗
             </a>
           )}
+          {project.videoUrl && (
+            <a className="project-modal-link" href={project.videoUrl} target="_blank" rel="noreferrer">
+              Projektvideo ansehen ↗
+            </a>
+          )}
           <span>{project.disciplines}</span>
         </div>
       </div>

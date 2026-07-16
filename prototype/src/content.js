@@ -9,7 +9,7 @@ export const site = {
   phoneLabel: "+43 650 24 19 890",
   phoneHref: "+436502419890",
   linkedin: "https://www.linkedin.com/in/andreas-schwarz1989",
-  documentPdf: "Andreas-Schwarz-Lebenslauf-Portfolio.pdf",
+  documentPdf: "Andreas-Schwarz-Lebenslauf-Portfolio-2026.pdf",
   location: "Leonding",
   address: ["Bruno-Gallée-Weg 8/19", "4060 Leonding", "Österreich"],
 };
@@ -133,11 +133,20 @@ export const projects = [
     eyebrow: "3D-Visualisierung & Interactive Publishing",
     text: "Technische Produkte als atmosphärische Produktwelt inszeniert – mit einer Kombination aus 3D und KI.",
     disciplines: "Cinema 4D · Rendering · Produktinszenierung · Interactive Publishing",
-    image: "poolwelt-exhibition.jpg",
+    image: "3d-poolwelt.jpg",
     alt: "3D-Visualisierung der Poolwelt als großer Steinbach-Messestand",
     tags: ["3d-visualisierung"],
     embedUrl: "https://indd.adobe.com/embed/1902ac46-b541-42a5-8925-5699f81faa4d",
     externalUrl: "https://indd.adobe.com/view/1902ac46-b541-42a5-8925-5699f81faa4d",
+  },
+  {
+    title: "Pool-Technikbox",
+    eyebrow: "3D-Kampagnenvisualisierung",
+    text: "Die Pool-Technikbox wurde in Cinema 4D als 3D-Motiv für eine Kampagne erstellt.",
+    disciplines: "Cinema 4D · Rendering · Kampagnenvisualisierung",
+    image: "3d-technikbox.jpg",
+    alt: "Dunkle Cinema-4D-Visualisierung einer Pool-Technikbox mit Steinbach-Schriftzug",
+    tags: ["3d-visualisierung"],
   },
   {
     title: "Dogius",
@@ -146,7 +155,7 @@ export const projects = [
     disciplines: "Grafikdesign · Layout · 3D-Visualisierung",
     image: "graphic-dogius.jpg",
     alt: "Dogius-Markenmotiv mit Hund auf einem modularen Schlafplatz",
-    tags: ["3d-visualisierung"],
+    tags: [],
     fit: "contain",
   },
   {
@@ -237,6 +246,7 @@ export const projects = [
     image: "helden-des-sommers.jpg",
     alt: "Mehrere Poolroboter in einer blau inszenierten Unterwasserwelt",
     tags: ["3d-visualisierung"],
+    videoUrl: "https://www.youtube.com/watch?v=SKylxGNwffY",
   },
   {
     title: "6-Wege-Ventil",
