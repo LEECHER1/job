@@ -344,7 +344,7 @@ export function App() {
         <section className="work-section" id="arbeiten" aria-labelledby="work-title">
           <SectionHeading
             kicker="Kompetenzfelder"
-            title="Sechs Kompetenzen. Eine Verbindung."
+            title="Fünf Kompetenzen. Eine Verbindung."
             text="Die Schwerpunkte stehen nicht nebeneinander: Sie greifen dort ineinander, wo Gestaltung, Produktverständnis und IT gemeinsam eine Lösung ergeben."
             id="work-title"
           />

@@ -33,13 +33,13 @@ export const heroProcess = [
     number: "02",
     label: "Technik",
     description: "3D, IT & automatisierte Workflows",
-    discipline: "workflow-automation",
+    discipline: "workflow-prototyping",
   },
   {
     number: "03",
     label: "Umsetzung",
     description: "Produkte verständlich & greifbar machen",
-    discipline: "prototyping",
+    discipline: "workflow-prototyping",
   },
 ];
 
@@ -69,16 +69,10 @@ export const disciplines = [
     text: "Produkte und technische Details werden in Cinema 4D visualisiert und als klare Produkt- oder Kampagnenmotive inszeniert.",
   },
   {
-    id: "prototyping",
-    label: "Prototyping",
-    short: "Ideen greifbar machen",
-    text: "Eigene Produktideen verbinden Gestaltung, 3D, Elektronik und technische Konzeption zu einem greifbaren Prototyp.",
-  },
-  {
-    id: "workflow-automation",
-    label: "Workflow-Automation",
-    short: "Skripte & digitale Werkzeuge",
-    text: "Eigene InDesign-, Photoshop- und PDF-Werkzeuge vereinfachen wiederkehrende Abläufe und verbinden Gestaltung mit IT.",
+    id: "workflow-prototyping",
+    label: "Workflow-Automation & Prototyping",
+    short: "Werkzeuge, Systeme & Ideen",
+    text: "Eigene digitale Werkzeuge und Prototypen verbinden Gestaltung mit IT, vereinfachen wiederkehrende Abläufe und machen Produktideen greifbar.",
   },
   {
     id: "video",
@@ -130,8 +124,8 @@ export const projects = [
     eyebrow: "3D-Visualisierung & Interactive Publishing",
     text: "Technische Produkte als atmosphärische Produktwelt inszeniert – mit einer Kombination aus 3D und KI.",
     disciplines: "Cinema 4D · Rendering · Produktinszenierung · Interactive Publishing",
-    image: "product-visualization.jpg",
-    alt: "Visualisierte Wasserpflegeprodukte vor einem Swimmingpool",
+    image: "poolwelt-exhibition.jpg",
+    alt: "3D-Visualisierung der Poolwelt als großer Steinbach-Messestand",
     tags: ["3d-visualisierung"],
     embedUrl: "https://indd.adobe.com/embed/1902ac46-b541-42a5-8925-5699f81faa4d",
     externalUrl: "https://indd.adobe.com/view/1902ac46-b541-42a5-8925-5699f81faa4d",
@@ -194,7 +188,7 @@ export const projects = [
     disciplines: "Produktidee · Sensorik · 3D · Prototyping",
     image: "smart-water-analyzer.png",
     alt: "Smart-Water-Analyzer-Prototyp mit zwei Messkammern und geöffnetem Gehäuse",
-    tags: ["prototyping"],
+    tags: ["workflow-prototyping"],
     fit: "contain",
   },
   {
@@ -204,7 +198,7 @@ export const projects = [
     disciplines: "InDesign · Automatisierung · Übersetzung",
     image: "supertranslator-pro.png",
     alt: "Mehrsprachige Ausschnitte einer übersetzten Bedienungsanleitung",
-    tags: ["workflow-automation"],
+    tags: ["workflow-prototyping"],
     fit: "contain",
   },
   {
