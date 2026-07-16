@@ -126,6 +126,17 @@ export const projects = [
     tags: ["fotografie"],
   },
   {
+    title: "Poolwelt",
+    eyebrow: "3D-Visualisierung & Interactive Publishing",
+    text: "Technische Produkte als atmosphärische Produktwelt inszeniert – mit einer Kombination aus 3D und KI.",
+    disciplines: "Cinema 4D · Rendering · Produktinszenierung · Interactive Publishing",
+    image: "product-visualization.jpg",
+    alt: "Visualisierte Wasserpflegeprodukte vor einem Swimmingpool",
+    tags: ["3d-visualisierung"],
+    embedUrl: "https://indd.adobe.com/embed/1902ac46-b541-42a5-8925-5699f81faa4d",
+    externalUrl: "https://indd.adobe.com/view/1902ac46-b541-42a5-8925-5699f81faa4d",
+  },
+  {
     title: "Dogius",
     eyebrow: "Grafikdesign & 3D-Visualisierung",
     text: "Gestaltung und Produktdarstellung für ein modulares Hundeschlafplatzsystem.",
@@ -203,15 +214,6 @@ export const projects = [
     disciplines: "3D · Rendering · Produktinszenierung",
     image: "helden-des-sommers.jpg",
     alt: "Mehrere Poolroboter in einer blau inszenierten Unterwasserwelt",
-    tags: ["3d-visualisierung"],
-  },
-  {
-    title: "Wasserpflege-Produktwelt",
-    eyebrow: "3D-Visualisierung",
-    text: "Technische Produkte als atmosphärische Produktwelt inszeniert – mit einer Kombination aus 3D und KI.",
-    disciplines: "Cinema 4D · Rendering · Produktinszenierung",
-    image: "product-visualization.jpg",
-    alt: "Visualisierte Wasserpflegeprodukte vor einem Swimmingpool",
     tags: ["3d-visualisierung"],
   },
   {
