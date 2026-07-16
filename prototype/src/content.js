@@ -136,6 +136,17 @@ export const projects = [
     fit: "contain",
   },
   {
+    title: "Pool Champion – Action Broschüre",
+    eyebrow: "Grafikdesign & Interactive Publishing",
+    text: "Interaktive Produktbroschüre mit klarer Angebotsstruktur, Produktdarstellung und sommerlicher Markenwelt.",
+    disciplines: "Editorial Design · Produktkommunikation · Interactive Publishing",
+    image: "graphic-pool-champion-action.jpg",
+    alt: "Geöffnete Pool-Champion-Action-Broschüre mit Poolpflegeprodukten und sommerlichem Bildmotiv",
+    tags: ["grafikdesign"],
+    embedUrl: "https://indd.adobe.com/embed/5f0317d3-ac18-45dc-8d0d-f503bcd994a1",
+    externalUrl: "https://indd.adobe.com/view/5f0317d3-ac18-45dc-8d0d-f503bcd994a1",
+  },
+  {
     title: "Bietschies",
     eyebrow: "Grafikdesign",
     text: "Marken- und Broschürengestaltung für eine Ledertaschenmarke mit hochwertiger, editorialer Bildsprache.",

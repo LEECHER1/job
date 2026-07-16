@@ -58,6 +58,7 @@ function Header({ activeSection }) {
 
 function ProjectCard({ project, onOpen }) {
   const base = import.meta.env.BASE_URL;
+  const interactive = Boolean(project.embedUrl);
 
   return (
     <article className="project-card">
@@ -65,10 +66,10 @@ function ProjectCard({ project, onOpen }) {
         type="button"
         className={`project-image project-image-button${project.fit === "contain" ? " is-contained" : ""}`}
         onClick={() => onOpen(project)}
-        aria-label={`${project.title} vergrößert ansehen`}
+        aria-label={`${project.title} ${interactive ? "interaktiv" : "vergrößert"} ansehen`}
       >
         <img src={`${base}images/${project.image}`} alt={project.alt} loading="lazy" />
-        <span><ArrowsOutSimple size={18} weight="bold" aria-hidden="true" /> Projekt ansehen</span>
+        <span><ArrowsOutSimple size={18} weight="bold" aria-hidden="true" /> {interactive ? "Interaktiv ansehen" : "Projekt ansehen"}</span>
       </button>
       <div className="project-copy">
         <p className="eyebrow">{project.eyebrow}</p>
@@ -109,7 +110,7 @@ function ProjectModal({ project, onClose }) {
       if (event.key === "Escape") onClose();
       if (event.key !== "Tab" || !dialogRef.current) return;
 
-      const focusable = dialogRef.current.querySelectorAll("button, a[href]");
+      const focusable = dialogRef.current.querySelectorAll("button, a[href], iframe");
       if (!focusable.length) return;
       const first = focusable[0];
       const last = focusable[focusable.length - 1];
@@ -145,13 +146,27 @@ function ProjectModal({ project, onClose }) {
         <button ref={closeRef} type="button" className="project-modal-close" onClick={onClose} aria-label="Projektansicht schließen">
           <X size={24} weight="bold" aria-hidden="true" />
         </button>
-        <div className={`project-modal-image${project.fit === "contain" ? " is-contained" : ""}`}>
-          <img src={`${base}images/${project.image}`} alt={project.alt} />
+        <div className={`project-modal-image${project.fit === "contain" ? " is-contained" : ""}${project.embedUrl ? " is-interactive" : ""}`}>
+          {project.embedUrl ? (
+            <iframe
+              src={project.embedUrl}
+              title={`${project.title} – interaktives Portfolio`}
+              allowFullScreen
+              loading="lazy"
+            />
+          ) : (
+            <img src={`${base}images/${project.image}`} alt={project.alt} />
+          )}
         </div>
         <div className="project-modal-copy">
           <p className="eyebrow">{project.eyebrow}</p>
           <h2 id="project-modal-title">{project.title}</h2>
           <p id="project-modal-description">{project.text}</p>
+          {project.externalUrl && (
+            <a className="project-modal-link" href={project.externalUrl} target="_blank" rel="noreferrer">
+              In voller Größe öffnen ↗
+            </a>
+          )}
           <span>{project.disciplines}</span>
         </div>
       </div>
@@ -222,7 +237,6 @@ export function App() {
     () => videos.filter((video) => video.tags.includes(selectedDiscipline)),
     [selectedDiscipline],
   );
-  const selectedWorkCount = filteredProjects.length + filteredVideos.length;
   const visibleWorks = useMemo(
     () => [
       ...filteredProjects.map((project) => ({ type: "project", item: project })),
@@ -230,6 +244,7 @@ export function App() {
     ].slice(0, 4),
     [filteredProjects, filteredVideos],
   );
+  const selectedWorkCount = visibleWorks.length;
 
   useEffect(() => {
     const sections = navigation.map(([, id]) => document.getElementById(id)).filter(Boolean);
