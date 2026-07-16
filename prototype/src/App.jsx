@@ -164,7 +164,7 @@ function ProjectModal({ project, onClose }) {
           <p id="project-modal-description">{project.text}</p>
           {project.externalUrl && (
             <a className="project-modal-link" href={project.externalUrl} target="_blank" rel="noreferrer">
-              In voller Größe öffnen ↗
+              {project.linkLabel ?? "In voller Größe öffnen ↗"}
             </a>
           )}
           {project.videoUrl && (
