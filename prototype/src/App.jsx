@@ -305,7 +305,15 @@ export function App() {
             </div>
           </div>
           <figure className="hero-image">
-            <img src={`${base}images/andreas-schwarz.jpg`} alt="Andreas Schwarz im schwarzen Sakko vor moderner Architektur" />
+            <a
+              className="hero-image-link"
+              href={`${base}${site.documentPdf}`}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Lebenslauf und Portfolio von Andreas Schwarz als PDF in einem neuen Tab öffnen"
+            >
+              <img src={`${base}images/andreas-schwarz.jpg`} alt="Andreas Schwarz im schwarzen Sakko vor moderner Architektur" />
+            </a>
             <figcaption><b>Erfahrung aus</b><span>Design, Technik<br />und Umsetzung</span></figcaption>
           </figure>
           <div className="hero-index" aria-label="Interaktive Einstiege in das Kompetenzprofil">

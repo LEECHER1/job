@@ -79,8 +79,10 @@ button { font: inherit; }
 .button-secondary:hover, .button-secondary:focus-visible { color: var(--white); border-color: var(--accent); background: var(--accent); }
 .hero-image { position: relative; min-height: 620px; margin: 0; background: #d4cec2; isolation: isolate; }
 .hero-image::before { position: absolute; z-index: 2; top: 0; bottom: 0; left: -1px; width: 18%; background: var(--paper); clip-path: polygon(0 0, 100% 0, 0 100%); content: ""; }
+.hero-image-link { position: absolute; z-index: 1; inset: 0; display: block; overflow: hidden; cursor: pointer; touch-action: pan-y pinch-zoom; }
+.hero-image-link:focus-visible { outline: 3px solid var(--accent); outline-offset: -6px; }
 .hero-image img { width: 100%; height: 100%; object-fit: cover; object-position: 56% center; animation: hero-image-in 950ms cubic-bezier(.2,.7,.2,1) both; transition: transform 900ms cubic-bezier(.2,.7,.2,1); }
-.hero-image:hover img { transform: scale(1.012); }
+.hero-image-link:hover img, .hero-image-link:focus-visible img { transform: scale(1.012); }
 .hero-image figcaption { position: absolute; z-index: 3; right: 28px; bottom: 28px; display: grid; justify-items: end; padding: 14px 0 0 32px; border-top: 2px solid var(--accent); color: var(--white); text-align: right; text-shadow: 0 1px 9px rgba(0,0,0,.75); animation: hero-caption-in 700ms 520ms cubic-bezier(.2,.7,.2,1) both; }
 .hero-image figcaption b { font-size: 1.65rem; }
 .hero-image figcaption span { margin-top: 2px; font-size: .68rem; font-weight: 720; letter-spacing: .1em; line-height: 1.5; text-transform: uppercase; }
@@ -256,7 +258,6 @@ button { font: inherit; }
   .hero-lead { font-size: 1.08rem; }
   .hero-actions { align-items: stretch; flex-direction: column; }
   .hero-image { order: 2; width: 100%; height: min(128vw, 620px); min-height: 0; flex: none; }
-  .hero-image img { position: absolute; inset: 0; }
   .hero-image::before { top: -1px; right: 0; bottom: auto; width: 100%; height: 12%; clip-path: polygon(0 0, 100% 0, 0 100%); }
   .hero-image figcaption { right: 20px; bottom: 20px; }
   .hero-index { order: 3; grid-template-columns: 1fr; }

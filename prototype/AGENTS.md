@@ -24,6 +24,7 @@ When implementing from a selected generated mock, treat that image as the source
 - The favicon is only a transparent-background `A` in the amber accent colour; do not add a tile, slash or secondary colour.
 - The hero content cluster sits slightly above optical center on desktop, while mobile uses normal document flow.
 - The portrait caption is `Design + IT` / `visuell gedacht` / `technisch umgesetzt`; do not restore the generic `18+ Jahre` claim.
+- The hero portrait links directly to the combined CV/portfolio PDF in a new tab without an extra overlaid button or label. Preserve vertical touch scrolling on the image.
 - The three hero process items are functional buttons: Gestaltung selects Grafikdesign, Technik selects IT & Automatisierung, and Umsetzung selects Produktkommunikation before scrolling to the work explorer.
 - Microinteractions stay restrained and purposeful: short entrance transitions, subtle image scale, inset accent lines, small card/copy movement, and full `prefers-reduced-motion` support.
 - Every competence category always shows four work cards in a stable 2×2 desktop grid. Empty positions use neutral, clearly labelled placeholders until real projects are added.
