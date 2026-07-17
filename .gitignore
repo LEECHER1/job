@@ -1,0 +1,6 @@
+prototype/node_modules/
+prototype/dist/
+prototype/.npm-cache/
+prototype/tmp/
+prototype/qa/reference/
+.DS_Store
