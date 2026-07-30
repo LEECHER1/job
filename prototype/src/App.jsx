@@ -25,11 +25,7 @@ function Header({ activeSection }) {
   return (
     <header className="site-header">
       <a className="brand" href="#start" aria-label="Andreas Schwarz – zum Start">
-        <span className="brand-mark" aria-hidden="true" />
-        <span>
-          <b>{site.name}</b>
-          <small>{site.role}</small>
-        </span>
+        <img src={`${import.meta.env.BASE_URL}header-logo.svg`} alt="" aria-hidden="true" />
       </a>
       <button
         className="menu-button"

@@ -22,6 +22,7 @@ When implementing from a selected generated mock, treat that image as the source
 - `Leonding` with a map-pin icon, the internationally formatted telephone number and the e-mail address must remain directly visible in the hero.
 - Do not show a `Portfolio · 2026` label in the hero contact line. The bridge statement breaks before `damit`; the discipline line breaks before `Produktdesign & Prototyping`.
 - The favicon is only a transparent-background `A` in the amber accent colour; do not add a tile, slash or secondary colour.
+- The header uses the supplied outlined `header-logo.svg` as one complete brand asset; do not reconstruct its wordmark or subtitle with HTML text.
 - The hero content cluster sits slightly above optical center on desktop, while mobile uses normal document flow.
 - The portrait caption is `Design + IT` / `visuell gedacht` / `technisch umgesetzt`; do not restore the generic `18+ Jahre` claim.
 - The hero portrait links directly to the combined CV/portfolio PDF in a new tab without an extra overlaid button or label. Preserve vertical touch scrolling on the image.
