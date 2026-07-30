@@ -35,7 +35,7 @@ button { font: inherit; }
   border-bottom: 1px solid var(--line); background: rgba(243, 240, 232, .96); backdrop-filter: blur(16px);
 }
 .brand { display: inline-flex; align-items: center; }
-.brand img { display: block; width: clamp(230px, 24vw, 305px); height: auto; }
+.brand img { display: block; width: clamp(184px, 19.2vw, 244px); height: auto; }
 .main-nav { display: flex; align-items: center; gap: clamp(20px, 2.4vw, 40px); }
 .main-nav a { position: relative; padding: 29px 0 24px; font-size: .7rem; font-weight: 760; letter-spacing: .12em; text-transform: uppercase; }
 .main-nav a::after { position: absolute; right: 0; bottom: 18px; left: 0; height: 2px; background: var(--accent); content: ""; transform: scaleX(0); transition: transform 180ms ease; }
@@ -245,7 +245,7 @@ button { font: inherit; }
   :root { --page: 100%; }
   html { scroll-padding-top: 70px; }
   .site-header { min-height: 70px; padding: 0 18px; }
-  .brand img { width: min(61vw, 238px); }
+  .brand img { width: min(48.8vw, 190px); }
   .main-nav { top: 70px; }
   .hero { display: flex; min-height: auto; border: 0; flex-direction: column; }
   .hero-copy { order: 1; padding: 50px 20px 52px; transform: none; }
