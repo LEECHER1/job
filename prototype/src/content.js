@@ -8,7 +8,7 @@ export const site = {
   email: "schwarz.andreas@liwest.at",
   phoneLabel: "+43 650 24 19 890",
   phoneHref: "+436502419890",
-  linkedin: "https://www.linkedin.com/in/andreas-schwarz1989",
+  linkedin: "https://www.linkedin.com/in/andreasschwarz1989",
   documentPdf: "Andreas-Schwarz-Lebenslauf-Portfolio-2026.pdf",
   location: "Leonding",
   address: ["Bruno-Gallée-Weg 8/19", "4060 Leonding", "Österreich"],
